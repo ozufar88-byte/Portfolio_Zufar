@@ -11,12 +11,16 @@
     <div id="header">
         <div class="container">
             <nav>
-                <!-- <img src="" class="logo"> -->
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Contact</a></li>
+               <ul id="sidemenu">
+                 <img src="image/photo_2026-03-30_23-19-57.jpg" class="logo">
+                <li><a href="#header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <i class="fa-regular fa-circle-xmark" onclick="closemenu()"></i>
+               </ul>
+               <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
                 <p>UI/UX Designer</p>
@@ -143,14 +147,18 @@
                     <a href="image/my-cv.pdf" download class="btn btn2">Download CV</a>
                 </div>
                 <div class="contact-right">
-                    <form>
+                    <form name="submit-to-google-sheeet">
                         <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="email" name="Email" placeholder="Your Email" required>
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                         <button type="submit" class="btn btn2">Submit</button>
                     </form>
+                    <span id="msg"></span>
                 </div>
             </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright @ Zufar. Made wtih <i class="fa-solid fa-heart"></i> by Easy Tutorials</p>
         </div>
        </div>
 
@@ -172,8 +180,37 @@
         }
 
 
+    </script>
 
+    <script>
 
+        var sidemenu = document.grt.getElementById("sidemenu");
+
+        function openmenu(){
+            sidemenu.style.right = "0"
+        }
+        function closemenu(){
+            sidemenu.style.right = "-200px"
+        }
+
+    </script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz4tHsegzDxZ2KT6AwzZblTU31mvM6iRABt7dATwh11niir2Ssp-dZPzeiyfrawEk6p/exec'
+        const form = document.forms['submit-to-google-sheeet']
+        const msg = document.getElementById("msg")
+        
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML = "Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML = ""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
     </script>
     
 </body>
