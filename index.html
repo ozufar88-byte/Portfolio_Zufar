@@ -15,8 +15,8 @@
     <div id="header">
         <div class="container">
             <nav>
+                <a href="#!" class="logo"><span>Z</span>ufar</a>
                 <ul id="sidemenu">
-                    <img src="./image/photo_2026-03-30_23-19-57.jpg" class="logo">
                     <li><a href="#header">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
@@ -24,14 +24,18 @@
                     <li><a href="#contact">Contact</a></li>
                     <i class="fa-regular fa-circle-xmark" onclick="closemenu()"></i>
                 </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                <button onclick="openmenu()" class="header-btn">
+                    <i class="fa-solid fa-bars" ></i>
+                </button>
             </nav>
-            <div class="header-text">
-                <p>UI/UX Designer</p>
-                <h1>Hi I'm <span>Zufar</span> <br> from Uzbekistan</h1>
-            </div>
-            <div>
-                <img src="./image/background.png.jpg" alt="">
+            <div class="header__content">
+                <div class="header-text">
+                    <p>UI/UX Designer</p>
+                    <h1>Hi I'm <span>Zufar</span> <br> from Uzbekistan</h1>
+                </div>
+                <div class="header__bg">
+                    <img src="./image/imageBg.png" alt="">
+                </div>
             </div>
         </div>
     </div>
